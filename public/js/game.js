@@ -614,8 +614,8 @@ class CantStopGame {
             pip.classList.toggle('filled', i < ai.columnsClaimed);
         });
         
-        this.turnNumber.textContent = `Turn ${this.state.turnNumber}`;
-        this.rollNumber.textContent = `Roll #${this.state.rollsThisTurn + 1}`;
+        this.turnNumber.textContent = `${this.state.turnNumber}`;
+        this.rollNumber.textContent = `${this.state.rollsThisTurn + 1}`;
     }
     
     showMessage(msg, type) {
