@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Can't Stop - Standalone</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Start Screen -->
+        <div id="start-screen" class="screen active">
+            <div class="title-container">
+                <h1 class="game-title">CAN'T STOP</h1>
+                <p class="subtitle">A Push-Your-Luck Dice Game</p>
+            </div>
+            <div class="start-form">
+                <div class="form-group">
+                    <label>Select Difficulty to Start</label>
+                    <div class="difficulty-buttons">
+                        <button class="diff-btn" data-difficulty="easy">Easy</button>
+                        <button class="diff-btn" data-difficulty="medium">Medium</button>
+                        <button class="diff-btn" data-difficulty="hard">Hard</button>
+                    </div>
+                </div>
+                <div class="stats-display" id="lifetime-stats"></div>
+            </div>
+            <div class="rules-preview">
+                <h3>Quick Rules</h3>
+                <ul>
+                    <li>Roll 4 dice, pair them into 2 sums</li>
+                    <li>Advance runners on matching columns</li>
+                    <li>Stop to bank progress, or push your luck!</li>
+                    <li>First to claim <strong>5 columns</strong> wins</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen">
+            <header class="game-header">
+                <div class="player-info player-human">
+                    <span class="player-icon">👤</span>
+                    <span class="player-name" id="human-name">Player</span>
+                    <div class="score-pips" id="human-pips">
+                        <span class="pip"></span>
+                        <span class="pip"></span>
+                        <span class="pip"></span>
+                        <span class="pip"></span>
+                        <span class="pip"></span>
+                    </div>
+                </div>
+                <div class="turn-info">
+                    <span id="turn-number">Turn 1</span>
+                    <span id="roll-number">Roll #1</span>
+                </div>
+                <div class="player-info player-ai">
+                    <div class="score-pips" id="ai-pips">
+                        <span class="pip"></span>
+                        <span class="pip"></span>
+                        <span class="pip"></span>
+                        <span class="pip"></span>
+                        <span class="pip"></span>
+                    </div>
+                    <span class="player-name">Computer</span>
+                    <span class="player-icon">🤖</span>
+                </div>
+            </header>
+            <main class="game-main">
+                <div class="board-container">
+                    <div id="game-board" class="game-board"></div>
+                </div>
+                <div class="action-panel">
+                    <div id="dice-container" class="dice-container hidden">
+                        <div class="dice-row">
+                            <div class="die" id="die-0">?</div>
+                            <div class="die" id="die-1">?</div>
+                            <div class="die" id="die-2">?</div>
+                            <div class="die" id="die-3">?</div>
+                        </div>
+                    </div>
+                    <div id="combo-choices" class="combo-choices hidden">
+                        <h3>Choose a combination:</h3>
+                        <div id="combo-buttons" class="combo-buttons"></div>
+                    </div>
+                    <div id="continue-decision" class="continue-decision hidden">
+                        <div id="pending-claims" class="pending-claims"></div>
+                        <div id="bust-probability" class="bust-probability"></div>
+                        <div class="decision-buttons">
+                            <button id="roll-again-btn" class="action-btn roll-btn">🎲 Roll Again</button>
+                            <button id="stop-btn" class="action-btn stop-btn">🛑 STOP</button>
+                        </div>
+                    </div>
+                    <div id="roll-prompt" class="roll-prompt">
+                        <button id="roll-btn" class="primary-btn roll-btn-large">🎲 Roll Dice</button>
+                    </div>
+                    <div id="message-display" class="message-display"></div>
+                    <button id="hint-btn" class="hint-btn" title="Get a hint (H)">💡 Hint</button>
+                </div>
+            </main>
+            <div id="hint-panel" class="hint-panel hidden">
+                <button class="close-hint">×</button>
+                <h3>💡 Hint</h3>
+                <div id="hint-content"></div>
+            </div>
+        </div>
+
+        <!-- Game Over Screen -->
+        <div id="game-over-screen" class="screen">
+            <div class="game-over-content">
+                <h1 id="winner-announcement">🏆 You Win! 🏆</h1>
+                <div id="final-stats" class="final-stats"></div>
+                <button id="play-again-btn" class="primary-btn">Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Scripts -->
+    <script src="js/constants.js"></script>
+    <script src="js/probability.js"></script>
+    <script src="js/board.js"></script>
+    <script src="js/game-state.js"></script>
+    <script src="js/ai-opponent.js"></script>
+    <script src="js/dice-roller.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
