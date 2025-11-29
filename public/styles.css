@@ -255,7 +255,10 @@ body {
     100% { transform: scale(1); opacity: 1; }
 }
 .turn-info { display: flex; flex-direction: column; align-items: center; color: var(--text-secondary); font-size: 0.9rem; }
+.turn-group { display: flex; gap: 4px; align-items: center; }
+.label-short { display: none; }
 #turn-number { font-weight: 600; color: var(--text-primary); }
+#roll-number { font-weight: 600; color: var(--text-primary); }
 .game-main { flex: 1; display: flex; padding: var(--spacing-lg); gap: var(--spacing-lg); overflow-x: hidden; overflow-y: auto; -webkit-overflow-scrolling: touch; }
 .board-container { flex: 2; display: flex; justify-content: center; align-items: center; }
 .game-board {
@@ -596,9 +599,13 @@ body {
 }
 @media (max-width: 600px) {
     .game-title { font-size: 2.5rem; }
-    .game-header { flex-wrap: wrap; gap: var(--spacing-sm); justify-content: center; padding: var(--spacing-sm) var(--spacing-md); }
-    .turn-info { order: -1; width: 100%; }
-    .player-info { flex-basis: 45%; }
+    .game-header { flex-wrap: nowrap; gap: var(--spacing-sm); justify-content: space-between; padding: var(--spacing-sm) var(--spacing-md); }
+    .turn-info { order: 0; width: auto; flex-direction: row; gap: var(--spacing-md); font-size: 0.8rem; }
+    .turn-group { gap: 2px; }
+    .label-long { display: none; }
+    .label-short { display: inline; }
+    .player-info { flex-basis: auto; gap: var(--spacing-xs); }
+    .player-name { display: none; }
     .player-info.player-ai { justify-content: flex-end; }
     .pip { width: 14px; height: 14px; }
     .board-column { min-width: 28px; padding: 2px; }
