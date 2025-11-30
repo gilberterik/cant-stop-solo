@@ -2,6 +2,8 @@
 
 A browser-based implementation of the classic push-your-luck dice game "Can't Stop" that runs entirely in your browser with no backend required.
 
+> **Note:** This project was primarily generated using AI as an exercise in AI-assisted development.
+
 ## How to Play
 
 1. **Open `public/index.html`** in any modern web browser
