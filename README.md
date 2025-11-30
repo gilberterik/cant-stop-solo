@@ -1,12 +1,11 @@
 # Can't Stop - Standalone Web Game
 
-A complete, single-file implementation of the classic push-your-luck dice game "Can't Stop" that runs entirely in your browser with no backend required.
+A browser-based implementation of the classic push-your-luck dice game "Can't Stop" that runs entirely in your browser with no backend required.
 
 ## How to Play
 
-1. **Open `index.html`** in any modern web browser
-2. Enter your name and select AI difficulty
-3. Click "Start Game"
+1. **Open `public/index.html`** in any modern web browser
+2. Select AI difficulty to start playing immediately
 
 ## Game Rules
 
@@ -31,27 +30,10 @@ A complete, single-file implementation of the classic push-your-luck dice game "
 
 ## Technical Details
 
-- **Single HTML file** (~1500 lines) with embedded CSS and JavaScript
-- **No dependencies** except Google Fonts (optional, works without)
+- **Pure HTML/CSS/JavaScript** with modular JS files
+- **External dependencies**: Google Fonts (optional) and canvas-confetti for win celebration
 - **localStorage** for statistics persistence
 - **Full probability calculations** for accurate bust percentages
-
-## Files
-
-```
-standalone/
-├── index.html         # The complete game (just open this!)
-├── README.md          # This file
-└── EXECUTION_PLAN.md  # Development notes
-```
-
-## Browser Compatibility
-
-Tested and works in:
-- Chrome 90+
-- Firefox 88+
-- Safari 14+
-- Edge 90+
 
 ## Credits
 
